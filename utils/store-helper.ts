@@ -1,7 +1,6 @@
+import { initialiseStores } from '@/store';
 import { Vue } from 'nuxt-property-decorator';
-import { getModule } from 'vuex-module-decorators';
 
-import Counter from '../store/counter';
 import { DemoStore } from '../store/types';
 
 
@@ -11,9 +10,7 @@ export abstract class ComponentStoreHelper extends Vue {
 
   constructor() {
     super();
-    this.store = {
-      counter: getModule(Counter, this.$store)
-    };
+    this.store = initialiseStores(this.$store, false);
   }
 }
 

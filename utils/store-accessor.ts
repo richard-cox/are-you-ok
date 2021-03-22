@@ -4,12 +4,17 @@ import { getModule } from 'vuex-module-decorators';
 import Counter from '../store/counter';
 import { DemoStore } from '../store/types';
 
-let store: DemoStore = {
+let cachedStore: DemoStore = {
   counter: null
 };
 
-function initialiseStores(vStore: Store<any>): void {
-  store.counter = getModule(Counter, vStore);
+function initialiseStores(vuexStore: Store<DemoStore>, useCache = true): DemoStore {
+  const store: DemoStore = useCache ? cachedStore : {} as DemoStore;
+  store.counter = getModule(Counter, vuexStore);
+  return store;
 }
 
-export { initialiseStores, store };
+export {
+  initialiseStores,
+  cachedStore as store
+};

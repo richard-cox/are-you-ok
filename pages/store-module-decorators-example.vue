@@ -3,7 +3,6 @@
 import { Component, Vue, Prop } from "nuxt-property-decorator";
 import { store } from "~/store";
 import Counter from "../store/counter";
-// import StoreModuleDecorator from "~/components/StoreModuleDecorator.vue";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 
 @Component
