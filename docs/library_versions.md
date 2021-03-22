@@ -11,3 +11,5 @@ Not in list
 - Quasar (material) https://quasar.dev/ - does not support vue 3 - v2 beta. no nuxt support?
 - Vue Material - https://vuematerial.io/ (no nuxt support?)
 
+Friday - https://vuejs.amsterdam/program/
+- nuxt three update
