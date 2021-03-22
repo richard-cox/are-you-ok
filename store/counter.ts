@@ -1,21 +1,29 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
 @Module({
-  name: 'Counter',
+  name: 'counter',
+  namespaced: true,
   stateFactory: true,
 })
 export default class Counter extends VuexModule {
-  count = 0;
 
+  // TODO: RC Demo - https://github.com/championswimmer/vuex-module-decorators/issues/105
+  // constructor() {
+  //   super();
+  // }
+  private _count = 0;
+
+  // TODO: RC Examples of all different store things
   @Mutation
   increment(delta: number) {
-    this.count += delta;
+    this._count += delta;
   }
   @Mutation
   decrement(delta: number) {
-    this.count -= delta;
+    this._count -= delta;
   }
 
+  // TODO: RC Demo - note the different names
   // action 'incr' commits mutation 'increment' when done with return value as payload
   @Action({ commit: 'increment' })
   incr() {
@@ -27,7 +35,7 @@ export default class Counter extends VuexModule {
     return 5;
   }
 
-  // get count() {
-  //   return this.count;
-  // }
+  get count() {
+    return this._count;
+  }
 }

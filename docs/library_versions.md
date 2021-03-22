@@ -1,4 +1,5 @@
-# Vue 3
+# Vue
+## 3
 - Released The Vue 3 core has officially been released as of 18 September 2020
 
 UI component library
@@ -13,3 +14,7 @@ Not in list
 
 Friday - https://vuejs.amsterdam/program/
 - nuxt three update
+
+
+# Vuex
+## 4

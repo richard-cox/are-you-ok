@@ -16,6 +16,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "noEmitHelpers": false,
+    "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
       "~/*": [

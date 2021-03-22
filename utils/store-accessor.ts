@@ -1,11 +1,15 @@
 import { Store } from 'vuex';
 import { getModule } from 'vuex-module-decorators';
-import Counter from '~/store/counter';
 
-let exampleStore: Counter;
+import Counter from '../store/counter';
+import { DemoStore } from '../store/types';
 
-function initialiseStores(store: Store<any>): void {
-  exampleStore = getModule(Counter, store);
+let store: DemoStore = {
+  counter: null
+};
+
+function initialiseStores(vStore: Store<any>): void {
+  store.counter = getModule(Counter, vStore);
 }
 
-export { initialiseStores, exampleStore };
+export { initialiseStores, store };
