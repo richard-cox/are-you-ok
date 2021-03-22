@@ -17,11 +17,15 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
       this.storeCounter.incr();
     }
   }
-
-  // async fetch() {}
 }
 </script>
 
 <template>
-  <StoreModuleDecorator />
+  <v-col>
+    <h2>Vuex Store Module Decorator - Simplete Demo</h2>
+    <!-- TODO: RC demo v-col autocomplete -->
+    <!-- TODO: RC demo description for 'elevation' autocomplete -->
+    <!-- <v-banner elevation="10" icon="$mdiVuetify">asdsd</v-banner> -->
+    <StoreModuleDecorator />
+  </v-col>
 </template>
