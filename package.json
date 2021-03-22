@@ -9,8 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "nuxt-socket-io": "^1.1.14",
+    "twitter-lite": "^1.1.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

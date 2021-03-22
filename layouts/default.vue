@@ -85,6 +85,11 @@ export default {
           title: "Module Decorator",
           to: "/store-module-decorators-example",
         },
+        {
+          icon: "mdi-twitter",
+          title: "Twitter Stream",
+          to: "/twitter-stream",
+        },
       ],
       miniVariant: false,
       // right: true,

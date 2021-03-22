@@ -26,6 +26,8 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
   constructor() {
     super();
 
+    // TODO: RC Async fetch equiv, see what dashboard requires
+
     this.storeCounter = this.store.counter;
 
     // Linting Errors

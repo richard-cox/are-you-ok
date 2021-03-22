@@ -4,7 +4,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - are-you-ok',
-    title: 'are-you-ok',
+    title: 'Internet - Are you ok?',
     htmlAttrs: {
       lang: 'en'
     },
@@ -39,7 +39,19 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // 'nuxt-socket-io',
+    '@nuxtjs/proxy'
   ],
+
+  // io: {
+  //   sockets: { // At least one entry is required
+  //     name: 'home',
+  //     url: 'http://localhost:3001',
+  //     default: true,
+  //     vuex: { /* see section below */ },
+  //     namespaces: { /* see section below */ }
+  //   },
+  // },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -62,5 +74,17 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // devServer: {
+  //   proxy: {
+  //     "/twitter/": {
+  //       target: "http://linux-o35c:3001/",
+  //       logLevel: "debug"
+  //     }
+  //   }
+  // }
+  proxy: {
+    '/api/twitter': 'http://linux-o35c:3001',
   }
 };
