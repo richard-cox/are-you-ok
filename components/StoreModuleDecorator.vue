@@ -44,8 +44,10 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
         Reset
       </v-btn>
     </v-col>
-    <v-row justify="center section-header"><h4 class="">Actions</h4></v-row>
-    <v-row justify="center section-body">
+    <v-row justify="center" class="section-header"
+      ><h4 class="">Actions</h4></v-row
+    >
+    <v-row justify="center" class="section-body">
       <!-- TODO: RC Demo actions in dev tool -->
       <v-btn depressed color="primary" @click="storeCounter.decr()">
         Decrement By 5
@@ -55,8 +57,8 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
         Increment By 5
       </v-btn>
     </v-row>
-    <v-row justify="center section-header"><h4>Mutations</h4></v-row>
-    <v-row justify="center section-body mt-12">
+    <v-row justify="center" class="section-header"><h4>Mutations</h4></v-row>
+    <v-row justify="center" class="section-body mt-12">
       <!-- TODO: RC Demo missing function property -->
       <v-btn
         depressed
