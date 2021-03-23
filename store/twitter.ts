@@ -2,6 +2,12 @@ import moment from 'moment';
 import { io, Socket } from 'socket.io-client';
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
+
+// https://www.npmjs.com/package/sentiment
+// https://www.npmjs.com/package/@jharrilim/sentiment (ts?)
+
 export interface Tweet {
   id: string,
   text: string,
@@ -28,9 +34,12 @@ export default class TwitterStream extends VuexModule {
 
   @Mutation
   addTweet(tweet: Tweet) {
+    const sen = sentiment.analyze(tweet.text);
+    // TODO: add positive/negative words
+    // https://www.npmjs.com/package/sentiment
     this._tweets.unshift({
       ...tweet,
-      sentiment: Math.floor(Math.random() * 6) + 1,
+      sentiment: sen.score,
       received: moment().format('HH:MM:ss.SSS YYYY/DD/MM') // Not great practise, but easier atm
     });
     this._totalTweets += 1;
@@ -66,6 +75,7 @@ export default class TwitterStream extends VuexModule {
   }
 
   get isStreaming() {
+    // This is not the best way to handle socket state
     return this.streaming;
   }
 

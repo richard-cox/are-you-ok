@@ -14,6 +14,7 @@
     "moment": "^2.29.1",
     "nuxt": "^2.15.3",
     "nuxt-socket-io": "^1.1.14",
+    "sentiment": "^5.0.2",
     "twitter-lite": "^1.1.0"
   },
   "devDependencies": {

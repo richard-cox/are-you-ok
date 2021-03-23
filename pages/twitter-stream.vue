@@ -34,13 +34,30 @@ export default class TwitterStream extends ComponentStoreHelper {
   }
 
   getColor(sentiment: number) {
-    //  switch (sentiment) {
-    //    case 0:
-    //      return 'red';
-    //  }
-    if (sentiment < 3) return "red";
-    else if (sentiment < 6) return "orange";
-    else return "green";
+    switch (sentiment) {
+      case -5:
+        return "#860111";
+      case -4:
+        return "#9D0218";
+      case -3:
+        return "#B40A34";
+      case -2:
+        return "#DF1544";
+      case -1:
+        return "#FF2249";
+      case 0:
+        return "grey";
+      case 1:
+        return "#9CC88B";
+      case 2:
+        return "#79B065";
+      case 3:
+        return "#65A047";
+      case 4:
+        return "#4D8C2D";
+      case 5:
+        return "#2A7111";
+    }
   }
 }
 </script>
@@ -89,7 +106,10 @@ export default class TwitterStream extends ComponentStoreHelper {
       </v-row>
     </v-col>
   </v-col>
+  <!-- TODO: RC HA! https://github.com/joe4dev/simple-sentiment-analysis -->
 </template>
+
+
 
 
 <style lang="scss" scoped>

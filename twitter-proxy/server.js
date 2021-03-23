@@ -18,7 +18,6 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
-console.error('BEARER_TOKEN: ', BEARER_TOKEN);// TODO: RC REMOVE
 
 let timeout = 0;
 
