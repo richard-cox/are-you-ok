@@ -26,6 +26,7 @@ export default class TwitterStream extends VuexModule {
   private streaming = false;
   private _tweets: Tweet[] = [];
   private _totalTweets = 0;
+  private _cumulativeSentiment = 0;
 
   @Mutation
   setStreaming(isStreaming: boolean) {
@@ -43,6 +44,7 @@ export default class TwitterStream extends VuexModule {
       received: moment().format('HH:MM:ss.SSS YYYY/DD/MM') // Not great practise, but easier atm
     });
     this._totalTweets += 1;
+    this._cumulativeSentiment += sen.score;
   }
 
   @Action
@@ -85,6 +87,10 @@ export default class TwitterStream extends VuexModule {
 
   get totalTweets() {
     return this._totalTweets;
+  }
+
+  get cumulativeSentiment() {
+    return this._cumulativeSentiment;
   }
 
 }

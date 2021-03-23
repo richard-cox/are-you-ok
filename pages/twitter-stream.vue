@@ -3,7 +3,7 @@
 import { Component } from "nuxt-property-decorator";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter from "../store/twitter";
-
+import SentimentHelper from "~/utils/sentiment-helper";
 @Component<TwitterStream>({
   beforeRouteLeave(to, from, next) {
     this.twitter.stop();
@@ -33,31 +33,8 @@ export default class TwitterStream extends ComponentStoreHelper {
     this.twitter = this.store.twitter;
   }
 
-  getColor(sentiment: number) {
-    switch (sentiment) {
-      case -5:
-        return "#860111";
-      case -4:
-        return "#9D0218";
-      case -3:
-        return "#B40A34";
-      case -2:
-        return "#DF1544";
-      case -1:
-        return "#FF2249";
-      case 0:
-        return "grey";
-      case 1:
-        return "#9CC88B";
-      case 2:
-        return "#79B065";
-      case 3:
-        return "#65A047";
-      case 4:
-        return "#4D8C2D";
-      case 5:
-        return "#2A7111";
-    }
+  getColour(sentiment: number): string {
+    return SentimentHelper.getSentimentState(sentiment).colour;
   }
 }
 </script>
@@ -89,13 +66,13 @@ export default class TwitterStream extends ComponentStoreHelper {
           :footer-props="{
             showFirstLastPage: true,
           }"
-          :no-data-text="'No Tweets. Start streaming?'"
+          :no-data-text="'No Tweets? Start streaming'"
         >
           <!-- eslint-disable-next-line vue/valid-v-slot -->
           <template v-slot:item.sentiment="{ item }">
             <v-chip
               label
-              :color="getColor(item.sentiment)"
+              :color="getColour(item.sentiment)"
               dark
               class="cell-sentiment"
             >

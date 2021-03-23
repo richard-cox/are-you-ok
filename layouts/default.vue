@@ -90,6 +90,11 @@ export default {
           title: "Twitter Stream",
           to: "/twitter-stream",
         },
+        {
+          icon: "mdi-emoticon-happy",
+          title: "Internet State Face",
+          to: "/internet-state-face",
+        },
       ],
       miniVariant: false,
       // right: true,
