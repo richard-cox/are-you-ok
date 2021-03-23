@@ -41,7 +41,7 @@ export default class TwitterStream extends ComponentStoreHelper {
         <v-btn
           depressed
           color="primary"
-          v-if="twitter.streamConsuming"
+          v-if="!!twitter.streamConsuming"
           @click="twitter.streamStop()"
         >
           Stop Stream

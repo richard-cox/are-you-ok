@@ -18,6 +18,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
+console.error('BEARER_TOKEN: ', BEARER_TOKEN);// TODO: RC REMOVE
 
 let timeout = 0;
 
@@ -50,9 +51,9 @@ const sleep = async (delay) => {
   return new Promise((resolve) => setTimeout(() => resolve(true), delay));
 };
 
-app.get("/ping", async (req, res) => {
+app.get("/api/twitter/ping", async (req, res) => {
   res.status(200);
-  res.send('HELLO');
+  res.send('PONG');
 });
 
 // app.get("/api/rules", async (req, res) => {
@@ -114,6 +115,9 @@ app.get("/ping", async (req, res) => {
 // });
 
 const streamTweets = (socket, token) => {
+  console.error('SERVER: streamTweets');// TODO: RC remove
+  console.log('streamTweets: streamURL', streamURL); // TODO: RC DElete
+
   let stream;
 
   const config = {
@@ -123,6 +127,8 @@ const streamTweets = (socket, token) => {
     },
     timeout: 31000,
   };
+
+  console.log('streamTweets: CONFIG: ', config); // TODO: RC DElete
 
   try {
     const stream = request.get(config);
@@ -164,15 +170,21 @@ const reconnect = async (stream, socket, token) => {
   streamTweets(socket, token);
 };
 
-io.on("connection", async (socket) => {
-  try {
-    const token = BEARER_TOKEN;
-    io.emit("connect", "Client connected");
-    const stream = streamTweets(io, token);
-  } catch (e) {
-    io.emit("authError", authMessage);
-  }
-});
+io
+  .on("connection", async (socket) => {
+    console.error('SERVER: connect');// TODO: RC remove
+    try {
+      const token = BEARER_TOKEN;
+      // 'connect' errors (Error: "connect" is a reserved event name)!!! // TODO: RC
+      //
+      io.emit("connected", "Client connected");
+      const stream = streamTweets(io, token);
+    } catch (e) {
+      // Not all exceptions are authErrors... this masks them!! // TODO: RC remove
+      console.error('SERVER: authError: ', e);// TODO: RC remove
+      io.emit("authError", authMessage);
+    }
+  });
 
 console.log("NODE_ENV is", process.env.NODE_ENV);
 

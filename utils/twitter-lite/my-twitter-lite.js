@@ -8,7 +8,7 @@ const Stream = require('./stream');
 // const getUrl = (subdomain, endpoint = '1.1') =>
 //   `https://${subdomain}.twitter.com/${endpoint}`;
 const getUrl = (subdomain, endpoint = '1.1') =>
-  `http://linux-o35c:3000/api/twitter/`;
+  `http://linux-o35c:3000/api/twitter/ws`;
 // `http://linux-o35c:3001`;
 
 const createOauthClient = ({ key, secret }) => {
@@ -310,6 +310,8 @@ class Twitter {
    * @returns {Stream}
    */
   stream(resource, parameters) {
+    console.error('twitter-light: stream');// TODO: RC Remove
+
     if (this.authType !== 'User')
       throw new Error('Streams require user context authentication');
 
@@ -321,6 +323,7 @@ class Twitter {
       url: `${getUrl('stream')}/${this.config.extension ? '.json' : ''}`,
       method: 'POST',
     };
+    console.error('twitter-light: stream: requestData: url: ', requestData.url);// TODO: RC Remove
     // HACK
     // const requestData = {
     //   url: `${getUrl('stream')}/${resource}${this.config.extension ? '.json' : ''}`,
