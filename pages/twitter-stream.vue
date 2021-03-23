@@ -6,29 +6,18 @@ import Counter from "../store/counter";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter from "../store/twitter";
 
-@Component
+@Component<TwitterStream>({
+  beforeRouteLeave(to, from, next) {
+    this.twitter.stop();
+    next();
+  },
+})
 export default class TwitterStream extends ComponentStoreHelper {
   private twitter: Twitter;
 
   constructor() {
     super();
     this.twitter = this.store.twitter;
-
-    // this.twitter = store.
-
-    // if (process.server) {
-    //   this.storeCounter.incr();
-    // }
-  }
-
-  mounted() {
-    // this.socket = this.$nuxtSocket({
-    //   // options
-    //   url: '/'
-    // })
-    // this.socket.on('', (msg: any, cb: any) => {
-    //   console.log(msg, cb);
-    // })
   }
 }
 </script>
@@ -41,18 +30,19 @@ export default class TwitterStream extends ComponentStoreHelper {
         <v-btn
           depressed
           color="primary"
-          v-if="!!twitter.streamConsuming"
-          @click="twitter.streamStop()"
+          v-if="twitter.isStreaming"
+          @click="twitter.stop()"
         >
           Stop Stream
         </v-btn>
-        <v-btn depressed color="primary" v-else @click="twitter.streamStart()">
+        <v-btn depressed color="primary" v-else @click="twitter.start()">
           Start Stream
         </v-btn>
       </v-col>
       <v-row justify="center" class="section-header"
-        ><h4 class="">Actions</h4></v-row
+        ><h4 class="">Tweets</h4></v-row
       >
+      <v-row> Tweets {{ twitter.tweets.length }} </v-row>
     </v-col>
   </v-col>
 </template>

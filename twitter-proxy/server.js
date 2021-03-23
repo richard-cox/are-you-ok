@@ -142,14 +142,13 @@ const streamTweets = (socket, token) => {
             reconnect(stream, socket, token);
           } else {
             if (json.data) {
-              console.log('tweet');
               socket.emit("tweet", json);
             } else {
-              console.log('authError');
               socket.emit("authError", json);
             }
           }
         } catch (e) {
+          console.error('Stream Data Error: ', e);
           socket.emit("heartbeat");
         }
       })

@@ -1,12 +1,5 @@
 import { io, Socket } from 'socket.io-client';
-import { Action, Module, VuexModule } from 'vuex-module-decorators';
-import TwitterClient from '~/utils/twitter-lite/my-twitter-lite';
-
-import creds from '../utils/creds';
-
-// import { Socket } from 'socket.io-client';
-// import { io, Socket } from 'socket.io-client';
-const client = new TwitterClient(creds);
+import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
 
 @Module({
@@ -14,83 +7,61 @@ const client = new TwitterClient(creds);
   namespaced: true,
   stateFactory: true,
 })
-export default class Twitter extends VuexModule {
+export default class TwitterStream extends VuexModule {
 
-  // stream: Stream;
-  stream: Socket;
-  data: any[];
+  private socket: Socket;
+  private streaming = false;
+  private _tweets: string[] = [];
 
-  @Action
-  get() {
-    // return client.stream('tweets/sample/stream', {});
+  @Mutation
+  setStreaming(isStreaming: boolean) {
+    this.streaming = isStreaming;
+  }
+
+  @Mutation
+  addTweet(tweet: string) {
+    this._tweets.push(tweet);
   }
 
   @Action
-  async streamStart() {
+  async start() {
 
-
-    // this.socket = this.context.$nuxtSocket({
-    //   // options
-    // })
-
-    // if (this.stream) {
-    //   return;
-    // }
-
-    debugger;
-
-    // const socket: WebSocket = new WebSocket('ws://linux-o35c:3000/api/twitter/ws');
-    // socket.onmessage = (message) => console.log('onmessage: ', message);
-    // socket.onopen = (a) => console.log('onopen: ', a);
-    // socket.onerror = (a) => console.log('onerror: ', a);
-    // socket.onclose = (a) => console.log('onclose: ', a);
-
-    this.stream = io('http://linux-o35c:3001', {
+    this.socket = io('http://linux-o35c:3001', {
       path: '',
-      // autoConnect: false,
-      // secure: false,
       transports: ['websocket']
-    }).connect();
-    this.stream
+    });
+    this.socket
       .on("connect", (response: any) => console.log("connect", response))
-      .on("authError", (error: any) => console.log("error", error))
+      .on("authError", (error: any) => console.log("authError", error))
       .on("error", (error: any) => console.log("error", error))
-      .on("heartbeat", (error: any) => console.log("error", error))
-      .on("tweet", (error: any) => console.log("error", error))
-
-      // .on("authError", (error: any) => console.log("error", error))
-      // .on("start", (response: any) => console.log("start"))
-      // .on("data", (tweet: any) => console.log("data", tweet.text))
-      // .on("ping", () => console.log("ping"))
-
-
+      .on("heartbeat", (error: any) => console.log("heartbeat", error))
+      .on("tweet", (tweet: any) => {
+        console.log('Tweet: ', tweet.data.text);
+        this.addTweet(tweet.data.text);
+      })
       .on("end", (response: any) => console.log("end"));
-
-    // this.stream = client.stream('tweets/sample/stream', {});
-    // this.stream.on("start", response => console.log("start"))
-    //   .on("data", tweet => console.log("data", tweet.text))
-    //   .on("ping", () => console.log("ping"))
-    //   .on("error", error => console.log("error", error))
-    //   .on("end", response => console.log("end"));
+    this.socket.connect();
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    this.setStreaming(true);
   }
 
   @Action
-  streamStop() {
-    if (!this.stream) {
+  stop() {
+    if (!this.socket) {
       return;
     }
-    // this.stream.destroy();
-    this.stream.disconnect();
-    this.stream.close();
-    delete this.stream;
+    this.socket.disconnect();
+    this.socket.close();
+    delete this.socket;
+    this.setStreaming(false);
   }
 
-  get SstreamConsuming() {
-    return this.stream;
+  get isStreaming() {
+    return this.streaming;
   }
 
-  get streamData() {
-    return this.data;
+  get tweets() {
+    return this._tweets;
   }
 
 }
