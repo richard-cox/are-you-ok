@@ -3,8 +3,7 @@ import colors from 'vuetify/es5/util/colors';
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    // titleTemplate: '%s - are-you-ok',
-    title: 'Internet - Are you ok?',
+    title: 'Internet.. Are you ok?',
     htmlAttrs: {
       lang: 'en'
     },

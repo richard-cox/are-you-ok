@@ -40,8 +40,8 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
 <template>
   <v-col class="store-module-decorator">
     <v-col class="text-center mb-11">
-      <h1>Counter</h1>
-      <h1>{{ storeCounter.count }}</h1>
+      <h1 class="mb-2">Counter</h1>
+      <h1 class="mb-2">{{ storeCounter.count }}</h1>
       <v-btn depressed color="primary" @click="storeCounter.reset()">
         Reset
       </v-btn>

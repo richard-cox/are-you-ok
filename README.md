@@ -24,3 +24,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 
 TODO: RC how to run frontend/backend
+TODO: RC describe each tab
+TODO: RC store stuff... load whilst on page ... server side increment of counter
+TODO: RC clean repo, make public, link in hackweek page (and vice versa)
+TODO: RC get/mutate/action/anything else vuex? add to simple 
+TODO: RC async fetch/asyncData
