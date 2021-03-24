@@ -39,7 +39,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // 'nuxt-socket-io',
-    '@nuxtjs/proxy'
+    // '@nuxtjs/proxy'
   ],
 
   // io: {
@@ -71,6 +71,7 @@ export default {
     }
   },
 
+  // TODO: RC this needed?
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extend(config, ctx) {
@@ -92,60 +93,60 @@ export default {
   //     }
   //   }
   // }
-  proxy: {
-    '/api/twitter/ws': proxyWsOpts('http://linux-o35c:3001'),
-    // '/api/twitter/ping': proxyOpts('http://linux-o35c:3001'),
-  }
+  // proxy: {
+  //   '/api/twitter/ws': proxyWsOpts('http://linux-o35c:3001'),
+  //   // '/api/twitter/ping': proxyOpts('http://linux-o35c:3001'),
+  // }
 };
 
-function proxyOpts(target, type) {
-  return {
-    target,
-    secure: false,
-    onProxyReq: (proxyReq, req) => {
-      console.log('onProxyReq: type: ', type);
-      return onProxyReq(proxyReq, req);
-    },
-    onProxyReqWs,
-    onError
-  };
-}
+// function proxyOpts(target, type) {
+//   return {
+//     target,
+//     secure: false,
+//     onProxyReq: (proxyReq, req) => {
+//       console.log('onProxyReq: type: ', type);
+//       return onProxyReq(proxyReq, req);
+//     },
+//     onProxyReqWs,
+//     onError
+//   };
+// }
 
-// TODO: RC remove all proxy shizzle
-function proxyWsOpts(target) {
-  console.log('proxyWsOpts', target);
-  return {
-    ...proxyOpts(target, 'ws'),
-    ws: true,
-    changeOrigin: true,
-    pathRewrite: { '/api/twitter/ws': '' }
-  };
-}
+// // TODO: RC remove all proxy shizzle
+// function proxyWsOpts(target) {
+//   console.log('proxyWsOpts', target);
+//   return {
+//     ...proxyOpts(target, 'ws'),
+//     ws: true,
+//     changeOrigin: true,
+//     pathRewrite: { '/api/twitter/ws': '' }
+//   };
+// }
 
-function onProxyReq(proxyReq, req) {
-  // proxyReq.setHeader('x-api-host', req.headers['host']);
-  // proxyReq.setHeader('x-forwarded-proto', 'https');
-  console.log('onProxyReq: ', proxyReq.getHeaders());
-  // console.log('onProxyReq keys: ', Object.keys(proxyReq));
-  console.log('onProxyReq path: ', proxyReq.path);
-}
+// function onProxyReq(proxyReq, req) {
+//   // proxyReq.setHeader('x-api-host', req.headers['host']);
+//   // proxyReq.setHeader('x-forwarded-proto', 'https');
+//   console.log('onProxyReq: ', proxyReq.getHeaders());
+//   // console.log('onProxyReq keys: ', Object.keys(proxyReq));
+//   console.log('onProxyReq path: ', proxyReq.path);
+// }
 
-function onProxyReqWs(proxyReq, req, socket, options, head) {
-  console.log('onProxyReqWs: ', proxyReq.getHeaders());
-  console.log('onProxyReqWs path: ', proxyReq.path);
+// function onProxyReqWs(proxyReq, req, socket, options, head) {
+//   console.log('onProxyReqWs: ', proxyReq.getHeaders());
+//   console.log('onProxyReqWs path: ', proxyReq.path);
 
-  // req.headers.origin = options.target.href;
-  // proxyReq.setHeader('origin', options.target.href);
-  // proxyReq.setHeader('x-api-host', req.headers['host']);
-  // proxyReq.setHeader('x-forwarded-proto', 'https');
+//   // req.headers.origin = options.target.href;
+//   // proxyReq.setHeader('origin', options.target.href);
+//   // proxyReq.setHeader('x-api-host', req.headers['host']);
+//   // proxyReq.setHeader('x-forwarded-proto', 'https');
 
-  socket.on('error', (err) => {
-    console.error('Proxy WS Error:', err); // eslint-disable-line no-console
-  });
-}
+//   socket.on('error', (err) => {
+//     console.error('Proxy WS Error:', err); // eslint-disable-line no-console
+//   });
+// }
 
-function onError(err, req, res) {
-  res.statusCode = 500;
-  console.error('Proxy Error:', err); // eslint-disable-line no-console
-  res.write(JSON.stringify(err));
-}
+// function onError(err, req, res) {
+//   res.statusCode = 500;
+//   console.error('Proxy Error:', err); // eslint-disable-line no-console
+//   res.write(JSON.stringify(err));
+// }
