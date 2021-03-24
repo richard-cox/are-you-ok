@@ -9,9 +9,6 @@ export interface Value {
   label: String;
 }
 
-/**
- * HELLLO // TODO: RC can this work?
- */
 @Component
 export default class StoreModuleDecorator extends ComponentStoreHelper {
   private increment = 0;
@@ -26,13 +23,7 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
   constructor() {
     super();
 
-    // TODO: RC Async fetch equiv, see what dashboard requires
-
     this.storeCounter = this.store.counter;
-
-    // Linting Errors
-    // const a = '';
-    // console.log('HELLO');
   }
 }
 </script>
@@ -50,7 +41,6 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
       ><h4 class="">Actions</h4></v-row
     >
     <v-row justify="center" class="section-body">
-      <!-- TODO: RC Demo actions in dev tool -->
       <v-btn depressed color="primary" @click="storeCounter.decr()">
         Decrement By 5
       </v-btn>
@@ -61,7 +51,7 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
     </v-row>
     <v-row justify="center" class="section-header"><h4>Mutations</h4></v-row>
     <v-row justify="center" class="section-body mt-12">
-      <!-- TODO: RC Demo missing function property -->
+      <!-- TODO: DEMO missing function property -->
       <v-btn
         depressed
         color="primary"

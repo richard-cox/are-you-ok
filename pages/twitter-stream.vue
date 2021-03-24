@@ -7,12 +7,10 @@ import SentimentHelper from "~/utils/sentiment-helper";
 import _ from "lodash";
 import { Howl } from "howler";
 
-// TODO: DEMO - lodash, same with howler
+// TODO: DEMO - Adding type definitions for JS deps. lodash, same with howler
 // yarn add lodash
 // yarn add @types/lodash -d
 // Restarted vscode!
-
-//
 
 @Component<TwitterStream>({
   beforeRouteLeave(to, from, next) {
@@ -53,7 +51,7 @@ export default class TwitterStream extends ComponentStoreHelper {
     return SentimentHelper.getSentimentState(sentiment).colour;
   }
 
-  @Watch("settings", { deep: true }) // TODO: Demo
+  @Watch("settings", { deep: true }) // TODO: DEMO autocomplete
   settingsChanged() {
     this.twitter.setSettings(this.settings);
   }
@@ -118,7 +116,7 @@ export default class TwitterStream extends ComponentStoreHelper {
               }"
               :no-data-text="'No Tweets? Start streaming'"
             >
-              <!-- TODO: Demo?  -->
+              <!-- TODO: DEMO Had to disable some linting rules -->
               <!-- eslint-disable-next-line vue/valid-v-slot -->
               <template v-slot:item.sentiment="{ item }">
                 <v-chip
@@ -138,7 +136,7 @@ export default class TwitterStream extends ComponentStoreHelper {
               v-model="settings.filterZeroSentiment"
               :label="`Filter Tweets with no sentiment`"
             ></v-checkbox>
-            <!-- TODO: Demo change :value to value -->
+            <!-- TODO: DEMO change :value to value -->
             <v-checkbox
               dense
               v-model="settings.streamOnlyOnPage"
@@ -158,8 +156,6 @@ export default class TwitterStream extends ComponentStoreHelper {
       </v-col>
     </v-card-text>
   </v-card>
-
-  <!-- TODO: RC HA! https://github.com/joe4dev/simple-sentiment-analysis -->
 </template>
 
 

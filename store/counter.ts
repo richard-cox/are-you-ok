@@ -1,13 +1,13 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
 @Module({
-  name: 'counter',
-  namespaced: true, // // TODO: RC Demo Module decorator for applying namespaced (required due to way initialised... plugin not file)
+  name: 'counter', // TODO: DEMO Autocompletes
+  namespaced: true, // TODO: DEMO Module decorator for applying namespaced (required due to way initialised... plugin not file)
   stateFactory: true,
 })
 export default class Counter extends VuexModule {
 
-  // TODO: RC Demo - VuexModules cannot have ctors https://github.com/championswimmer/vuex-module-decorators/issues/105
+  // TODO: DEMO - VuexModules cannot have ctors https://github.com/championswimmer/vuex-module-decorators/issues/105
   // constructor() {
   //   super();
   // }
@@ -22,7 +22,6 @@ export default class Counter extends VuexModule {
   // Mutations
   // *********************************************
 
-  // TODO: RC Examples of all different store things
   @Mutation
   increment(delta: number) {
     this._count += delta;
@@ -41,7 +40,6 @@ export default class Counter extends VuexModule {
   // Actions
   // *********************************************
 
-  // TODO: RC Demo - note the different names
   // action 'incr' commits mutation 'increment' when done with return value as payload
   @Action({ commit: 'increment' })
   incr() {

@@ -3,9 +3,9 @@
     <v-card-title> Hackweek 20 </v-card-title>
     <v-card-subtitle>Welcome</v-card-subtitle>
     <v-card-text>
-      <p>TODO: RC</p>
-      <p>TODO: RC</p>
-      <p>TODO: RC</p>
+      <p>TODO:</p>
+      <p>TODO:</p>
+      <p>TODO:</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer />

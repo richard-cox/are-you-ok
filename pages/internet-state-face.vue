@@ -7,7 +7,7 @@ import SentimentHelper from "~/utils/sentiment-helper";
 import _ from "lodash";
 import { Howl } from "howler";
 
-// TODO: RC demo? enums in ts/js
+// TODO: DEMO TS enums > JS map
 enum Timeframe {
   SECONDS = 1000,
   MINUTES = 1000 * 60,
@@ -71,8 +71,6 @@ export default class InternetStateFace extends ComponentStoreHelper {
     howl.play();
   }, 1000);
 }
-
-// TODO: RC Score is not always -5 to +5!
 </script>
 
 <template>
@@ -112,7 +110,7 @@ export default class InternetStateFace extends ComponentStoreHelper {
               v-model="timeAmount"
             ></v-text-field>
             <v-btn-toggle v-model="timeframe" tile color="accent-3" group>
-              <!-- TODO: RC if have time, v-for on enum, captialise name -->
+              <!-- TODO: TODO if have time, v-for on enum, captialise name -->
               <v-btn elevation="4" small :value="timeframeEnum.SECONDS">
                 Seconds
               </v-btn>
@@ -150,11 +148,7 @@ export default class InternetStateFace extends ComponentStoreHelper {
   </v-card>
 </template>
 
-
-
-
 <style lang="scss" scoped>
-// TODO: RC move to common
 .internet-state-face {
   .time-amount {
     max-width: 100px;

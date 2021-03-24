@@ -29,6 +29,10 @@ export interface TwitterStreamSettings {
 })
 export default class TwitterStream extends VuexModule {
 
+  // *********************************************
+  // State
+  // *********************************************
+
   private socket: Socket;
   private streaming = false;
   private _tweets: Tweet[] = [];
@@ -39,7 +43,10 @@ export default class TwitterStream extends VuexModule {
     streamOnlyOnPage: true,
     soundEnabled: false,
   };
-  // private _lastTweet: Tweet;
+
+  // *********************************************
+  // Mutations
+  // *********************************************
 
   @Mutation
   setStreaming(isStreaming: boolean) {
@@ -53,8 +60,7 @@ export default class TwitterStream extends VuexModule {
       return;
     }
     const now = new Date();
-    // TODO: add positive/negative words
-    // https://www.npmjs.com/package/sentiment
+    // TODO: TODO add positive/negative words
     const newTweet = {
       ...tweet,
       sentiment: sen.score,
@@ -64,10 +70,6 @@ export default class TwitterStream extends VuexModule {
     this._tweets.unshift(newTweet);
     this._totalTweets += 1;
     this._cumulativeSentiment += sen.score;
-    // this._lastTweet = newTweet;
-    // if (this._settings.soundEnabled) {
-    //   SentimentHelper.getSentimentState(sen.score).sound.play();
-    // }
   }
 
   @Mutation
@@ -83,6 +85,10 @@ export default class TwitterStream extends VuexModule {
       ...settings
     };
   }
+
+  // *********************************************
+  // Actions
+  // *********************************************
 
   @Action
   async start() {
@@ -102,7 +108,6 @@ export default class TwitterStream extends VuexModule {
     this.setStreaming(true);
   }
 
-  // TODO: RC Demo dev tools
   @Action({ commit: 'emptyTweets' })
   clear() { }
 
@@ -116,6 +121,10 @@ export default class TwitterStream extends VuexModule {
     delete this.socket;
     this.setStreaming(false);
   }
+
+  // *********************************************
+  // Getters
+  // *********************************************
 
   get isStreaming() {
     // This is not the best way to handle socket state
@@ -138,8 +147,5 @@ export default class TwitterStream extends VuexModule {
     return this._settings;
   }
 
-  // get lastTweet() {
-  //   return this._lastTweet;
-  // }
 
 }
