@@ -4,6 +4,8 @@ import { Component, Watch } from "nuxt-property-decorator";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter from "../store/twitter";
 import SentimentHelper from "~/utils/sentiment-helper";
+import _ from "lodash";
+import { Howl } from "howler";
 
 // TODO: RC demo? enums in ts/js
 enum Timeframe {
@@ -52,21 +54,22 @@ export default class InternetStateFace extends ComponentStoreHelper {
     return SentimentHelper.getSentimentState(sentiment);
   }
 
-  mounted() {
-    const sentiment = this.getSentimentState(0);
-    const sound = new Audio(sentiment.sound.default);
-    sound.play();
-  }
+  @Watch("score")
+  scoreChanged = _.throttle(() => {
+    if (!this.twitter.settings.soundEnabled) {
+      return;
+    }
+    console.debug("State Face: Playing Sound: ", this.score);
 
-  @Watch("score", {
-    immediate: false,
-  }) // TODO: Demo
-  scoreChanged() {
-    const sentiment = this.getSentimentState(this.score);
-
-    const sound = new Audio(sentiment.sound.default);
-    sound.play();
-  }
+    const soundFile = SentimentHelper.getSentimentState(this.score).sound
+      .default;
+    const howl = new Howl({
+      src: soundFile,
+      autoplay: true,
+      preload: true,
+    });
+    howl.play();
+  }, 1000);
 }
 
 // TODO: RC score over last minute/hour/day/etc

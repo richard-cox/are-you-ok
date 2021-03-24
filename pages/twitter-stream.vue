@@ -5,7 +5,7 @@ import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter, { TwitterStreamSettings } from "../store/twitter";
 import SentimentHelper from "~/utils/sentiment-helper";
 import _ from "lodash";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 
 // TODO: DEMO - lodash, same with howler
 // yarn add lodash
@@ -63,7 +63,7 @@ export default class TwitterStream extends ComponentStoreHelper {
     if (!this.twitter.settings.soundEnabled) {
       return;
     }
-    console.log("PLAYING SOUND");
+    console.debug("State Stream: Playing Sound: ", this.lastTweet.sentiment);
 
     const soundFile = SentimentHelper.getSentimentState(
       this.lastTweet.sentiment
@@ -75,10 +75,7 @@ export default class TwitterStream extends ComponentStoreHelper {
     });
 
     howl.play();
-    // const sound = new Audio(soundFile);
-    // sound.play();
-    // _.throttle(() => void, 500)
-  }, 5000);
+  }, 1000);
 
   get lastTweet() {
     return this.twitter.tweets[0];
