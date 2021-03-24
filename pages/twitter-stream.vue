@@ -4,6 +4,16 @@ import { Component, Watch } from "nuxt-property-decorator";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter, { TwitterStreamSettings } from "../store/twitter";
 import SentimentHelper from "~/utils/sentiment-helper";
+import _ from "lodash";
+import { Howl, Howler } from "howler";
+
+// TODO: DEMO - lodash, same with howler
+// yarn add lodash
+// yarn add @types/lodash -d
+// Restarted vscode!
+
+//
+
 @Component<TwitterStream>({
   beforeRouteLeave(to, from, next) {
     if (this.twitter.settings.streamOnlyOnPage) {
@@ -46,6 +56,32 @@ export default class TwitterStream extends ComponentStoreHelper {
   @Watch("settings", { deep: true }) // TODO: Demo
   settingsChanged() {
     this.twitter.setSettings(this.settings);
+  }
+
+  @Watch("lastTweet")
+  lastTweetChanged = _.throttle(() => {
+    if (!this.twitter.settings.soundEnabled) {
+      return;
+    }
+    console.log("PLAYING SOUND");
+
+    const soundFile = SentimentHelper.getSentimentState(
+      this.lastTweet.sentiment
+    ).sound.default;
+    const howl = new Howl({
+      src: soundFile,
+      autoplay: true,
+      preload: true,
+    });
+
+    howl.play();
+    // const sound = new Audio(soundFile);
+    // sound.play();
+    // _.throttle(() => void, 500)
+  }, 5000);
+
+  get lastTweet() {
+    return this.twitter.tweets[0];
   }
 }
 </script>
@@ -112,6 +148,15 @@ export default class TwitterStream extends ComponentStoreHelper {
               v-model="settings.streamOnlyOnPage"
               :label="`Stop stream on tab exit`"
             ></v-checkbox>
+            <v-checkbox
+              dense
+              v-model="settings.soundEnabled"
+              :label="`Enable Sound`"
+            ></v-checkbox>
+            <!-- TODO: Demo v-btn attribute autocomplete - outline/outlined -->
+            <v-btn depressed color="primary" outlined @click="twitter.clear()">
+              Clear All Tweets
+            </v-btn>
           </v-card>
         </v-tab-item>
       </v-tabs>

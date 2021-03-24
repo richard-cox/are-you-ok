@@ -19,6 +19,7 @@ export interface Tweet {
 export interface TwitterStreamSettings {
   filterZeroSentiment: boolean,
   streamOnlyOnPage: boolean,
+  soundEnabled: boolean,
 }
 
 @Module({
@@ -36,7 +37,9 @@ export default class TwitterStream extends VuexModule {
   private _settings: TwitterStreamSettings = {
     filterZeroSentiment: false,
     streamOnlyOnPage: true,
+    soundEnabled: false,
   };
+  // private _lastTweet: Tweet;
 
   @Mutation
   setStreaming(isStreaming: boolean) {
@@ -52,14 +55,26 @@ export default class TwitterStream extends VuexModule {
     const now = new Date();
     // TODO: add positive/negative words
     // https://www.npmjs.com/package/sentiment
-    this._tweets.unshift({
+    const newTweet = {
       ...tweet,
       sentiment: sen.score,
       receivedString: moment(now).format('HH:MM:ss.SSS YYYY/DD/MM'), // Not great practise, but easier atm
       received: now.getTime()
-    });
+    };
+    this._tweets.unshift(newTweet);
     this._totalTweets += 1;
     this._cumulativeSentiment += sen.score;
+    // this._lastTweet = newTweet;
+    // if (this._settings.soundEnabled) {
+    //   SentimentHelper.getSentimentState(sen.score).sound.play();
+    // }
+  }
+
+  @Mutation
+  emptyTweets() {
+    this._tweets = [];
+    this._totalTweets = 0;
+    this._cumulativeSentiment = 0;
   }
 
   @Mutation
@@ -86,6 +101,10 @@ export default class TwitterStream extends VuexModule {
     this.socket.connect();
     this.setStreaming(true);
   }
+
+  // TODO: RC Demo dev tools
+  @Action({ commit: 'emptyTweets' })
+  clear() { }
 
   @Action
   stop() {
@@ -118,5 +137,9 @@ export default class TwitterStream extends VuexModule {
   get settings() {
     return this._settings;
   }
+
+  // get lastTweet() {
+  //   return this._lastTweet;
+  // }
 
 }

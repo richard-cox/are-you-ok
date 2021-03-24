@@ -1,6 +1,6 @@
 
 <script lang="ts">
-import { Component } from "nuxt-property-decorator";
+import { Component, Watch } from "nuxt-property-decorator";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import Twitter from "../store/twitter";
 import SentimentHelper from "~/utils/sentiment-helper";
@@ -50,6 +50,22 @@ export default class InternetStateFace extends ComponentStoreHelper {
 
   getSentimentState(sentiment: number) {
     return SentimentHelper.getSentimentState(sentiment);
+  }
+
+  mounted() {
+    const sentiment = this.getSentimentState(0);
+    const sound = new Audio(sentiment.sound.default);
+    sound.play();
+  }
+
+  @Watch("score", {
+    immediate: false,
+  }) // TODO: Demo
+  scoreChanged() {
+    const sentiment = this.getSentimentState(this.score);
+
+    const sound = new Audio(sentiment.sound.default);
+    sound.play();
   }
 }
 

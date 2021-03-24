@@ -74,6 +74,15 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      });
+    },
   },
 
   // devServer: {
@@ -103,6 +112,7 @@ function proxyOpts(target, type) {
   };
 }
 
+// TODO: RC remove all proxy shizzle
 function proxyWsOpts(target) {
   console.log('proxyWsOpts', target);
   return {
