@@ -24,12 +24,11 @@ export default class InternetStateFace extends ComponentStoreHelper {
   }
 }
 
+// TODO: RC score over last minute/hour/day/etc
 // TODO: RC add clear tweets
-// TODO: RC filter out zero score
-//
+// TODO: RC add sound!
+// TODO: RC Score is not always -5 to +5!
 </script>
-
-
 
 <template>
   <v-col>
@@ -50,7 +49,8 @@ export default class InternetStateFace extends ComponentStoreHelper {
           >
         </v-row>
         <v-row justify="center" class="mb-5"
-          >Score: {{ score }} (from {{ twitter.totalTweets }} tweets)</v-row
+          >Score: {{ score }} <br />(from
+          {{ twitter.totalTweets }} tweets)</v-row
         >
         <v-row justify="center">
           <table>

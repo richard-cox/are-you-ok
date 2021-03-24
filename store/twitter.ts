@@ -15,6 +15,11 @@ export interface Tweet {
   received: string,
 }
 
+export interface TwitterStreamSettings {
+  filterZeroSentiment: boolean,
+  streamOnlyOnPage: boolean,
+}
+
 @Module({
   name: 'twitter',
   namespaced: true,
@@ -27,6 +32,10 @@ export default class TwitterStream extends VuexModule {
   private _tweets: Tweet[] = [];
   private _totalTweets = 0;
   private _cumulativeSentiment = 0;
+  private _settings: TwitterStreamSettings = {
+    filterZeroSentiment: false,
+    streamOnlyOnPage: true,
+  };
 
   @Mutation
   setStreaming(isStreaming: boolean) {
@@ -36,6 +45,9 @@ export default class TwitterStream extends VuexModule {
   @Mutation
   addTweet(tweet: Tweet) {
     const sen = sentiment.analyze(tweet.text);
+    if (this._settings.filterZeroSentiment && sen.score === 0) {
+      return;
+    }
     // TODO: add positive/negative words
     // https://www.npmjs.com/package/sentiment
     this._tweets.unshift({
@@ -45,6 +57,13 @@ export default class TwitterStream extends VuexModule {
     });
     this._totalTweets += 1;
     this._cumulativeSentiment += sen.score;
+  }
+
+  @Mutation
+  setSettings(settings: TwitterStreamSettings) {
+    this._settings = {
+      ...settings
+    };
   }
 
   @Action
@@ -91,6 +110,10 @@ export default class TwitterStream extends VuexModule {
 
   get cumulativeSentiment() {
     return this._cumulativeSentiment;
+  }
+
+  get settings() {
+    return this._settings;
   }
 
 }
