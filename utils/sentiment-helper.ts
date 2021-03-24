@@ -48,8 +48,8 @@ export default class SentimentHelper {
       };
     }
     return {
-      colour: "#grey",
-      icon: 'mdi-emoticon-neutral-outline'
+      colour: "grey",
+      icon: 'mdi-emoticon-neutral'
     };
 
 

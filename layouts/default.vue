@@ -76,11 +76,6 @@ export default {
           to: "/",
         },
         {
-          icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire",
-        },
-        {
           icon: "mdi-database",
           title: "Module Decorator",
           to: "/store-module-decorators-example",

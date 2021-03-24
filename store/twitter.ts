@@ -12,7 +12,8 @@ export interface Tweet {
   id: string,
   text: string,
   sentiment: number,
-  received: string,
+  receivedString: string,
+  received: number,
 }
 
 export interface TwitterStreamSettings {
@@ -48,12 +49,14 @@ export default class TwitterStream extends VuexModule {
     if (this._settings.filterZeroSentiment && sen.score === 0) {
       return;
     }
+    const now = new Date();
     // TODO: add positive/negative words
     // https://www.npmjs.com/package/sentiment
     this._tweets.unshift({
       ...tweet,
       sentiment: sen.score,
-      received: moment().format('HH:MM:ss.SSS YYYY/DD/MM') // Not great practise, but easier atm
+      receivedString: moment(now).format('HH:MM:ss.SSS YYYY/DD/MM'), // Not great practise, but easier atm
+      received: now.getTime()
     });
     this._totalTweets += 1;
     this._cumulativeSentiment += sen.score;
