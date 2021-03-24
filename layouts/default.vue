@@ -94,7 +94,7 @@ export default {
       miniVariant: false,
       // right: true,
       // rightDrawer: false,
-      title: "Hackweek 20 - Internet are you ok?",
+      title: "Internet are you ok?",
     };
   },
 };

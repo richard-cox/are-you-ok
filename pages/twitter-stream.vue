@@ -84,28 +84,29 @@ export default class TwitterStream extends ComponentStoreHelper {
 </script>
 
 <template>
-  <v-col>
-    <h2>Twitter Stream</h2>
-    <v-col class="twitter-stream">
-      <v-row justify="center" class="mb-11">
-        <v-btn
-          depressed
-          color="primary"
-          v-if="twitter.isStreaming"
-          @click="twitter.stop()"
-        >
-          Stop Stream
-        </v-btn>
-        <v-btn depressed color="primary" v-else @click="twitter.start()">
-          Start Stream
-        </v-btn>
-      </v-row>
-      <v-tabs>
-        <v-tab>Stream</v-tab>
-        <v-tab>Settings</v-tab>
+  <v-card>
+    <v-card-title> Tweets </v-card-title>
+    <v-card-subtitle> The Twitter Sample Stream</v-card-subtitle>
+    <v-card-text>
+      <v-col class="twitter-stream">
+        <v-row justify="center" class="mb-11">
+          <v-btn
+            depressed
+            color="primary"
+            v-if="twitter.isStreaming"
+            @click="twitter.stop()"
+          >
+            Stop Stream
+          </v-btn>
+          <v-btn depressed color="primary" v-else @click="twitter.start()">
+            Start Stream
+          </v-btn>
+        </v-row>
+        <v-tabs background-color="#0000000f">
+          <v-tab>Stream</v-tab>
+          <v-tab>Settings</v-tab>
 
-        <v-tab-item>
-          <v-card flat class="">
+          <v-tab-item active-class="tab">
             <v-data-table
               dense
               :headers="tableHeaders"
@@ -130,10 +131,8 @@ export default class TwitterStream extends ComponentStoreHelper {
                 </v-chip>
               </template>
             </v-data-table>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <v-card flat>
+          </v-tab-item>
+          <v-tab-item active-class="tab">
             <v-checkbox
               dense
               v-model="settings.filterZeroSentiment"
@@ -154,51 +153,40 @@ export default class TwitterStream extends ComponentStoreHelper {
             <v-btn depressed color="primary" outlined @click="twitter.clear()">
               Clear All Tweets
             </v-btn>
-          </v-card>
-        </v-tab-item>
-      </v-tabs>
-
-      <v-col class="text-center">
-        <!--
-          " -->
+          </v-tab-item>
+        </v-tabs>
       </v-col>
-      <v-row> </v-row>
-    </v-col>
-  </v-col>
+    </v-card-text>
+  </v-card>
+
   <!-- TODO: RC HA! https://github.com/joe4dev/simple-sentiment-analysis -->
 </template>
 
 
-
-
 <style lang="scss" scoped>
-// TODO: RC move to common
 .twitter-stream {
-  // .section {
-  //   &-header {
-  //     padding-bottom: 10px;
-  //   }
-  //   &-body {
-  //     padding-bottom: 10px;
-
-  //     .v-input__slider {
-  //       flex: 0 0 200px;
-  //     }
-  //   }
-  // }
-
-  // .small-spacer {
-  //   padding: 0 10px;
-  // }
-
   .cell-sentiment {
     margin: 8px;
   }
 
-  .v-window-item {
-    & > .v-card,
-    .v-data-table {
+  $header: #0000000f;
+  $tab: #1a1a1a;
+  .v-tabs {
+    .v-tabs-bar,
+    .v-tabs-items,
+    .v-data-table,
+    .v-window-item {
+      background-color: $tab;
+    }
+
+    .tab {
       padding: 10px;
+    }
+  }
+
+  .v-window-item {
+    .v-input {
+      margin-top: 0;
     }
   }
 }

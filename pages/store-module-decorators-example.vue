@@ -21,11 +21,16 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
 </script>
 
 <template>
-  <v-col>
-    <h2>Vuex Store Module Decorator - Simplete Demo</h2>
-    <!-- TODO: RC demo v-col autocomplete -->
-    <!-- TODO: RC demo description for 'elevation' autocomplete -->
-    <!-- <v-banner elevation="10" icon="$mdiVuetify">asdsd</v-banner> -->
-    <StoreModuleDecorator />
-  </v-col>
+  <v-card>
+    <v-card-title> Vuex Store Module Decorator </v-card-title>
+    <v-card-subtitle>A Simple Demo</v-card-subtitle>
+    <v-card-text>
+      <v-col>
+        <!-- TODO: RC demo v-col autocomplete -->
+        <!-- TODO: RC demo description for 'elevation' autocomplete -->
+        <!-- <v-banner elevation="10" icon="$mdiVuetify">asdsd</v-banner> -->
+        <StoreModuleDecorator />
+      </v-col>
+    </v-card-text>
+  </v-card>
 </template>
