@@ -70,3 +70,6 @@ Sentiment
 
 
 https://developer.twitter.com/en/docs/twitter-api/tweets/sampled-stream/quick-start
+
+
+https://stackoverflow.com/questions/58814678/nuxtserverinit-with-vuex-module-decorators

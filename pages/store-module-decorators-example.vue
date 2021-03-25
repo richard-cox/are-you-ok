@@ -5,17 +5,19 @@ import { store } from "~/store";
 import Counter from "../store/counter";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 
-@Component
+@Component<StoreModuleDecoratorsExample>({
+  async fetch(ctx) {
+    if (process.server) {
+      store.counter.incr(); // Note - This accesses SSR store... rather than client/this store
+    }
+  },
+})
 export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
   private storeCounter: Counter;
 
   constructor() {
     super();
     this.storeCounter = store.counter;
-
-    if (process.server) {
-      this.storeCounter.incr();
-    }
   }
 }
 </script>
