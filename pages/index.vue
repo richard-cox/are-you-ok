@@ -25,7 +25,7 @@
           </v-list-item>
         </v-list>
       </p>
-
+      <h2>Pages</h2>
       <h3>Vuex Store Module Decorator</h3>
       <p>
         Basic working example of a typed Vuex store using
@@ -45,11 +45,22 @@
       </p>
       <h3>Internet State Face</h3>
       <p>Present the sentiment of the internet portrayed as a face</p>
+      <h2>Other Comments</h2>
+      <h3>Component Library</h3>
+      <p>
+        I wanted to use a material design based component library that was
+        natively supported by Nuxt (appeared in it's library list when creating
+        a fresh project) and also supported Vue 3. I gave up after a bit and
+        chose Vuetify, which won't support Vue v3 until Q3 '21. Others that were
+        considered were bootstrap, ViewUI, Element, Quasar and Vue Material.
+      </p>
+      <p></p>
     </v-card-text>
   </v-card>
+  <!-- // <v-btn color="primary" nuxt to="/store-module-decorators-example">
+//         Go
+//       </v-btn> -->
 </template>
 
 
-// <v-btn color="primary" nuxt to="/store-module-decorators-example">
-//         Go
-//       </v-btn>
+
