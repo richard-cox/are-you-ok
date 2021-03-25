@@ -155,6 +155,16 @@ export default class InternetStateFace extends ComponentStoreHelper {
           of this page is to present an overall sentiment of the internet for
           the given time period
         </p>
+                <p>
+          Related files
+          <ul>
+            <li><code>./pages/twitter-stream.vue</code></li>
+            <li><code>./store/index.ts</code></li>
+            <li><code>./store/twitter.ts</code></li>
+            <li><code>./utils/store-helper.ts</code></li>
+            <li><code>./twitter-proxy</code></li>
+          </ul>
+        </p>
       </v-card-text>
     </v-card>
   </div>

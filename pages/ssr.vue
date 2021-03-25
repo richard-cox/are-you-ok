@@ -83,13 +83,18 @@ export default class SSR extends ComponentStoreHelper {
           </li>
         </ul>
         </p>
-
         <p>
           There will be manual ways to work around this, such as plugging into
           other hooks which do work (<code>created</code>, others, etc). HOWEVER
           I'm not 100% sure how these would tie in with the Dashboard's
           <code>/plugins/steve/index.js</code> use of
           <code>windows.__NUXT__.(data|fetch)</code>
+        </p>
+        <p>
+          Related files
+          <ul>
+            <li><code>./components/ssr-componet.vue</code></li>
+          </ul>
         </p>
       </v-card-text>
     </v-card>

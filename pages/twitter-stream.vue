@@ -194,6 +194,15 @@ export default class TwitterStream extends ComponentStoreHelper {
         <p>
           A word on sentiment analysis... it can be excruciatingly difficult or very basic. Give the scope of this project I've gone for the latter and used <a href="https://github.com/thisandagain/sentiment">a small but decent library </a>
         </p>
+        <p>
+          Related files
+          <ul>
+            <li><code>./store/index.ts</code></li>
+            <li><code>./store/twitter.ts</code></li>
+            <li><code>./utils/store-helper.ts</code></li>
+            <li><code>./twitter-proxy</code></li>
+          </ul>
+        </p>
       </v-card-text>
     </v-card>
   </div>

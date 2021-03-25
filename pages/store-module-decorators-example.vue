@@ -57,6 +57,15 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
           the store module initialised with the component's store (see the
           extended class)
         </p>
+        <p>
+          Related files
+          <ul>
+            <li><code>./components/store-module-decorator.vue</code></li>
+            <li><code>./store/index.ts</code></li>
+            <li><code>./store/counter.ts</code></li>
+            <li><code>./utils/store-helper.ts</code></li>
+          </ul>
+        </p>
       </v-card-text>
     </v-card>
   </div>

@@ -1,7 +1,9 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
+// TODO: DEMO A Vuex store typed and classed
+
 @Module({
-  name: 'counter', // TODO: DEMO Autocompletes
+  name: 'counter', // TODO: DEMO What can set in the module decorator? ... autocompletes
   namespaced: true, // TODO: DEMO Module decorator for applying namespaced (required due to way initialised... plugin not file)
   stateFactory: true,
 })
@@ -40,6 +42,7 @@ export default class Counter extends VuexModule {
   // Actions
   // *********************************************
 
+  // TODO: DEMO Note - Properties in the store must be named uniquely
   // action 'incr' commits mutation 'increment' when done with return value as payload
   @Action({ commit: 'increment' })
   incr() {
