@@ -2,18 +2,13 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const util = require("util");
 const request = require("request");
 const path = require("path");
 const socketIo = require("socket.io");
 const http = require("http");
 
-// TODO: RC tidy up
-
 const app = express();
-let port = process.env.PORT || 3000;
-// const post = util.promisify(request.post);
-// const get = util.promisify(request.get);
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,14 +42,7 @@ const sleep = async (delay) => {
   return new Promise((resolve) => setTimeout(() => resolve(true), delay));
 };
 
-app.get("/api/twitter/ping", async (req, res) => {
-  res.status(200);
-  res.send('PONG');
-});
-
 const streamTweets = (socket, token) => {
-  let stream;
-
   const config = {
     url: streamURL,
     auth: {
@@ -105,29 +93,19 @@ const reconnect = async (stream, socket, token) => {
 
 io
   .on("connection", async (socket) => {
-    console.error('SERVER: connect');// TODO: RC remove
+    console.info('SERVER: connection');// TODO: RC remove
     try {
       const token = BEARER_TOKEN;
-      // 'connect' errors (Error: "connect" is a reserved event name)!!! // TODO: RC
-      //
+      // 'connect' errors (Error: "connect" is a reserved event name)!!!
       io.emit("connected", "Client connected");
       const stream = streamTweets(io, token);
     } catch (e) {
-      // Not all exceptions are authErrors... this masks them!! // TODO: RC remove
-      console.error('SERVER: authError: ', e);// TODO: RC remove
+      // Not all exceptions are authErrors... this masks them!!
+      console.error('SERVER: authError: ', e);
       io.emit("authError", authMessage);
     }
   });
 
 console.log("NODE_ENV is", process.env.NODE_ENV);
-
-if (process.env.NODE_ENV === "production") { // TODO: RC Remove
-  app.use(express.static(path.join(__dirname, "../build")));
-  app.get("*", (request, res) => {
-    res.sendFile(path.join(__dirname, "../build", "index.html"));
-  });
-} else {
-  port = 3001;
-}
 
 server.listen(port, () => console.log(`Listening on port ${port}`));

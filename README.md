@@ -1,7 +1,11 @@
 # Internet Are You OK?
-Internet, are you ok? A voyage into Vue, Vuex, Nuxt and Typescript
+Internet, are you ok? A voyage into Vue, Vuex, Nuxt and Typescript.
 
-https://hackweek.suse.com/20/projects/internet-are-you-ok-a-voyage-into-vue-vuex-nuxt-and-typescript
+Most docs/descriptions are on each page, however the aims are set out in the [My SUSE Hackweek Project Page](https://hackweek.suse.com/20/projects/internet-are-you-ok-a-voyage-into-vue-vuex-nuxt-and-typescript), but TL;DR
+      
+- Investigate Typescript integration with Vue, Vuex and Nuxt.
+- Understand how Typescript support changes in newer versions of each of the above.
+- Achieve this by a fun project to determine the sentiment of the internet. This was heavily inspired by [a site](https://github.com/thisandagain/sentiment) that visually and audibly tracks the state of Wikipedia.
 
 ## Build Setup
 
@@ -20,19 +24,18 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Running the twitter-proxy
+In order for the streaming page to work run the `./twitter-proxy`, checkout it's README to do so
 
-TODO: RC Intro/Welcome Page. high level aims.
 
-TODO: RC tidy up store code
-TODO: RC how to run frontend/backend
-TODO: RC describe each tab
-TODO: RC store stuff... load whilst on page ... server side increment of counter
+
+TODO: clean server
 TODO: RC clean repo, make public, link in hackweek page (and vice versa)
 TODO: RC get/mutate/action/anything else vuex? add to simple 
 TODO: RC async fetch/asyncData
 TODO: RC component features (data, getters, watch)
 
+TODO: RC JUNK
 # Demo Content
 - Module Decorator ([Page](./pages/store-module-decorators-example.vue)) 
   - (Typescript) Components in templates autocompletes (v-col, StoreModuleDecorator)

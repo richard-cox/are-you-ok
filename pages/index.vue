@@ -11,7 +11,7 @@
         >, but TL;DR
         <v-list>
           <v-list-item dense>
-            Investigate Typescript intergration with Vue, Vuex and Nuxt
+            Investigate Typescript integration with Vue, Vuex and Nuxt
           </v-list-item>
           <v-list-item dense>
             Understand how Typescript support changes in newer versions of each
@@ -21,7 +21,7 @@
             Achieve this by a fun project to determine the sentiment of the
             internet. This was heavily inspired by&nbsp;
             <a href="https://github.com/thisandagain/sentiment">a site</a>&nbsp;
-            that visually and audiblly tracks the state of Wikipedia
+            that visually and audibly tracks the state of Wikipedia
           </v-list-item>
         </v-list>
       </p>
