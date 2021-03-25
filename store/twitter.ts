@@ -40,7 +40,7 @@ export default class TwitterStream extends VuexModule {
   private _cumulativeSentiment = 0;
   private _settings: TwitterStreamSettings = {
     filterZeroSentiment: false,
-    streamOnlyOnPage: true,
+    streamOnlyOnPage: false,
     soundEnabled: false,
   };
 

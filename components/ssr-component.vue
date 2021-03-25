@@ -1,8 +1,6 @@
 
 <script lang="ts">
-import { Component, Vue, Prop } from "nuxt-property-decorator";
-import { store } from "~/store";
-import Counter from "../store/counter";
+import { Component } from "nuxt-property-decorator"; //https://github.com/nuxt-community/nuxt-property-decorator#readme & https://class-component.vuejs.org/
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import { logWithLocation, Originator } from "../pages/ssr.vue";
 
@@ -11,7 +9,7 @@ export interface Value {
 }
 
 @Component<SSRComponent>({
-  // This does not work
+  // This does not work, defaults to true normally anyway
   // fetchOnServer: true,
   fetchOnServer: false,
   async fetch(ctx) {
@@ -42,6 +40,14 @@ export default class SSRComponent extends ComponentStoreHelper {
     super();
     // TODO: DEMO This is called both server and client side
     logWithLocation("SSRComponent - init");
+  }
+
+  created() {
+    logWithLocation("SSRComponent - created fn");
+  }
+
+  mounted() {
+    logWithLocation("SSRComponent - mounted fn");
   }
 
   // TODO: DEMO These cause `Maximum call stack size exceeded` error
