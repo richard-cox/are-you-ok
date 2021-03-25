@@ -81,6 +81,11 @@ export default {
           to: "/store-module-decorators-example",
         },
         {
+          icon: "mdi-server",
+          title: "SSR",
+          to: "/ssr",
+        },
+        {
           icon: "mdi-twitter",
           title: "Twitter Stream",
           to: "/twitter-stream",

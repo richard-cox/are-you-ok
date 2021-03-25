@@ -22,7 +22,7 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-TODO: RC Intro/Welcome Page
+TODO: RC Intro/Welcome Page. high level aims.
 
 TODO: RC tidy up store code
 TODO: RC how to run frontend/backend
@@ -44,6 +44,7 @@ TODO: RC component features (data, getters, watch)
   - (Typescript) TS enums are nicer over and above JS map 
 - Twitter Stream ([Page](./pages/twitter-stream.vue)) 
   - (Typescript) Importing typing for JS dependencies is normally straight forward (`yarn add @types/<dep>`, works for lodash, howler)
+  - (Typescript) Nuxt Route leave properties are automatically typed
   - (Typescript) Component features - (getters, ) TODO: RC. 
   - (Typescript) Autocomplete component features - ctx, watch values, etc
   - (Typescript) Interesting linting for vuetify slots!
@@ -66,3 +67,6 @@ Sentiment
 - Uses third part dependency for simple sentiment analysis - https://github.com/thisandagain/sentiment
 - Originally thought library scored each tweet as a whole on a scale of -5 to 5, it looks like this is per work
 - Does this all sound familiar? Twitter sentiment analysis on streams - https://github.com/joe4dev/simple-sentiment-analysis. It's not quite the same... but concept with pithy ui :D
+
+
+https://developer.twitter.com/en/docs/twitter-api/tweets/sampled-stream/quick-start

@@ -1,3 +1,5 @@
+// This basis for this file came from https://developer.twitter.com/en/docs/tutorials/building-an-app-to-stream-tweets
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const util = require("util");
@@ -6,7 +8,6 @@ const path = require("path");
 const socketIo = require("socket.io");
 const http = require("http");
 
-// TODO: RC link to where this came from
 // TODO: RC tidy up
 
 const app = express();

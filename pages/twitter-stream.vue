@@ -13,6 +13,7 @@ import { Howl } from "howler";
 // Restarted vscode!
 
 @Component<TwitterStream>({
+  // TODO: DEMO - Nuxt route leave properties are automatically typed
   beforeRouteLeave(to, from, next) {
     if (this.twitter.settings.streamOnlyOnPage) {
       this.twitter.stop();
