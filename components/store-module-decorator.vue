@@ -1,7 +1,6 @@
 
 <script lang="ts">
-import { Component, Vue, Prop } from "nuxt-property-decorator";
-import { store } from "~/store";
+import { Component, Emit, VModel } from "nuxt-property-decorator";
 import Counter from "../store/counter";
 import { ComponentStoreHelper } from "~/utils/store-helper";
 
@@ -9,6 +8,7 @@ export interface Value {
   label: String;
 }
 
+// TODO: DEMO what is ComponentStoreHelper? hover...
 @Component
 export default class StoreModuleDecorator extends ComponentStoreHelper {
   private increment = 0;
@@ -18,12 +18,39 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
   // The definite assignment assertion is a feature that allows a ! to be placed after instance property and variable declarations to relay to TypeScript that a variable is indeed assigned for all intents and purposes, even if TypeScript’s analyses cannot detect so
   // @Prop({ default: { label: "" } }) value: Value | undefined;
 
+  // TODO: DEMO v-model/value shorthand
+  @VModel({ type: String }) example!: string;
+  /* Is the same as....
+    props: {
+      value: {
+        type: String,
+      },
+    },
+    computed: {
+      name: {
+        get() {
+          return this.value
+        },
+        set(value) {
+          this.$emit('input', value)
+        },
+      },
+    },
+   */
+
   public storeCounter: Counter;
 
   constructor() {
     super();
 
     this.storeCounter = this.store.counter;
+  }
+
+  // TODO: DEMO Emit - Execute code, emit a 'incrementReset' event with the value of this.increment
+  @Emit("incrementReset")
+  resetIncrement() {
+    this.increment = 0;
+    return this.increment;
   }
 }
 </script>

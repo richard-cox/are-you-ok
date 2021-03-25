@@ -66,4 +66,18 @@ export default class Counter extends VuexModule {
   get count() {
     return this._count;
   }
+
+
+  // TODO: DEMO Actions + Mutation function above, Mutation + Action below
+
+  // conferences: Array<ConferencesEntity> = []
+  // events: Array<EventsEntity> = []
+
+  // // 'events' and 'conferences' are replaced by returned object
+  // // whose shape must be `{events: [...], conferences: [...] }`
+  // @MutationAction({ mutate: ['events', 'conferences'] })
+  // async fetchAll() {
+  //   const response: Response = await getJSON('https://hasgeek.github.io/events/api/events.json')
+  //   return response
+  // }
 }

@@ -18,3 +18,6 @@ export abstract class ComponentStoreHelper extends Vue {
   }
 }
 
+// Was hoping this wouldn't be needed if store was initialised via nuxtServerInit/nuxtClientInit. Haven't tried here but didn't work in dashboard
+// See https://stackoverflow.com/questions/58814678/nuxtserverinit-with-vuex-module-decorators
+
