@@ -80,6 +80,11 @@ export default {
           title: "Module Decorator",
           to: "/store-example",
         },
+        // {
+        //   icon: "mdi-database",
+        //   title: "SSR As Composite Component",
+        //   to: "/ssr-as-composite",
+        // },
         {
           icon: "mdi-server",
           title: "SSR",

@@ -2,7 +2,8 @@
 <script lang="ts">
 import Counter from "../store/counter";
 
-import { defineComponent } from "@vue/composition-api";
+// import { defineComponent } from "@vue/composition-api";
+import { defineComponent } from "@nuxtjs/composition-api";
 import { initialiseStores } from "../store";
 
 export default defineComponent({
