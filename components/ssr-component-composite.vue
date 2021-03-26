@@ -2,8 +2,6 @@
 <script lang="ts">
 import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
-// import Vue from "vue";
-// import Component from "vue-class-component";
 
 import { defineComponent } from "@vue/composition-api";
 
@@ -13,9 +11,6 @@ export default defineComponent({
     this.asyncFetchOrig = process.server
       ? Originator.SERVER
       : Originator.CLIENT;
-    // return Promise.resolve({
-    //   asyncFetchOrig: this.asyncFetchOrig,
-    // });
   },
   asyncData(ctx) {
     logWithLocation("Composite - asyncData");

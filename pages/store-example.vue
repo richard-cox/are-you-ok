@@ -42,11 +42,11 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
       <v-card-text>
         <p>
           A simple example demonstrating how a Vuex store can be implemented in
-          typescript
+          typescript.
         </p>
         <p>
           The store itself is a class which makes use of decorators to declare
-          store type functions
+          store type functions.
         </p>
         <p>
           The store initialised via <code>./store/index.ts</code> however
@@ -61,12 +61,16 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
           extended class)
         </p>
         <p>
+          The left hand component is created using the nuxt-property-decorator package. The right hand component is created by the new composition-api way
+        </p>
+        <p>
           Related files
           <ul>
-            <li><code>./components/store-module-decorator.vue</code></li>
             <li><code>./store/index.ts</code></li>
             <li><code>./store/counter.ts</code></li>
             <li><code>./utils/store-helper.ts</code></li>
+            <li><code>./components/store-module-decorator-class.vue</code></li>
+            <li><code>./components/store-module-decorator-composite.vue</code></li>
           </ul>
         </p>
       </v-card-text>

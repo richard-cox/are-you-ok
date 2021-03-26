@@ -21,7 +21,7 @@
             Achieve this by a fun project to determine the sentiment of the
             internet. This was heavily inspired by&nbsp;
             <a href="https://github.com/thisandagain/sentiment">a site</a>&nbsp;
-            that visually and audibly tracks the state of Wikipedia
+            that visually and audibly presents the realtime state of Wikipedia
           </v-list-item>
         </v-list>
       </p>
@@ -31,12 +31,14 @@
         Basic working example of a typed Vuex store using
         <a href="https://github.com/championswimmer/vuex-module-decorators"
           >vuex-module-decorators</a
-        >
+        >. This also showcases two ways to make a component, via class &
+        decorator vs with the composition-api
       </p>
       <h3>Server-Side Rendering</h3>
       <p>
-        Basic working example of how Nuxt SSR is handled in a typed component
-        class
+        Basic working example of how Nuxt SSR is handled by a page component and
+        within three different types of component (vanilla, class and
+        composition-api)
       </p>
       <h3>Twitter Stream</h3>
       <p>
@@ -45,6 +47,8 @@
       </p>
       <h3>Internet State Face</h3>
       <p>Present the sentiment of the internet portrayed as a face</p>
+      <h3>Versions</h3>
+      <p>A very brief overview of Vue, Vuex and Nuxt next gen versions</p>
       <h2>Other Comments</h2>
       <h3>Component Library</h3>
       <p>

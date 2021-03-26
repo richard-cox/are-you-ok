@@ -65,20 +65,27 @@ export default class SSR extends ComponentStoreHelper {
           <code>asyncData</code>. There's some unsolved issues here...
         </p>
         <p>
-        <ul>
-          <li>
-            The page's <code>async fetch</code> does run (see console), however
-            the changes to <code>this</code> are not reflected when rendered
-          </li>
-          <li>
-            The component's <code>async fetch</code> does not run at all. A
-            number of ways to get this to work have been tried in code
-          </li>
-          <li>
-            The component's <code>asyncData</code> does not run at all. However
-            this is to be expected (asyncData normally only runs on pages)
-          </li>
-        </ul>
+          <ul>
+            <li>
+              The page's <code>async fetch</code> does run (see console), however
+              the changes to <code>this</code> are not reflected when rendered
+            </li>
+            <li>Vanilla Component (matches dashboard)
+              <ul>
+                <li>Neither async fetch or asyncData run! This is not expected</li>
+              </ul>
+            </li>
+            <li>Class Component (created as a class using decorators)
+              <ul>
+                <li>Neither async fetch or asyncData run! This is expected</li>
+              </ul>
+            </li>
+            <li>Composite API Componet (like Vanilla, but created via composition-api)
+              <ul>
+                <li>Neither async fetch or asyncData run! This is not expected</li>
+              </ul>
+            </li>
+          </ul>
         </p>
         <p>
           There will be manual ways to work around this, such as plugging into
@@ -90,7 +97,9 @@ export default class SSR extends ComponentStoreHelper {
         <p>
           Related files
           <ul>
-            <li><code>./components/ssr-componet.vue</code></li>
+            <li><code>./components/ssr-component-class.vue</code></li>
+            <li><code>./components/ssr-component-composite.vue</code></li>
+            <li><code>./components/ssr-component-vanilla.vue</code></li>
           </ul>
         </p>
       </v-card-text>
