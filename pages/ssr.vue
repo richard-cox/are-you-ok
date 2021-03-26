@@ -82,7 +82,7 @@ export default class SSR extends ComponentStoreHelper {
             </li>
             <li>Composite API Componet (like Vanilla, but created via composition-api)
               <ul>
-                <li>Neither async fetch or asyncData run! This is not expected</li>
+                <li>Neither async fetch or asyncData run! This is not quite expected, however it looks like there's a nuxt version of composition-api wich works a <a href="https://composition-api.nuxtjs.org/helpers/useFetch">little differently</a></li>
               </ul>
             </li>
           </ul>

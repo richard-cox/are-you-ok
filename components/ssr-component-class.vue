@@ -4,8 +4,6 @@ import { Component } from "nuxt-property-decorator"; //https://github.com/nuxt-c
 import { ComponentStoreHelper } from "~/utils/store-helper";
 import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
-// import Vue from "vue";
-// import Component from "vue-class-component";
 
 @Component<SSRComponent>({
   // This does not work, defaults to true normally anyway
@@ -16,7 +14,6 @@ import { Originator } from "../types/ssr.types";
     this.asyncFetchOrig = process.server
       ? Originator.SERVER
       : Originator.CLIENT;
-    return Promise.resolve();
   },
   // TODO: DEMO Async data will only work on pages - https://nuxtjs.org/docs/2.x/features/data-fetching/#async-data
   // asyncData(ctx) {
