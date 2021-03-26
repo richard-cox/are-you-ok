@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" fixed app color="#0C322C">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
@@ -66,9 +66,9 @@
 export default {
   data() {
     return {
-      clipped: false,
+      clipped: true,
       drawer: false,
-      fixed: false,
+      fixed: true,
       items: [
         {
           icon: "mdi-apps",
