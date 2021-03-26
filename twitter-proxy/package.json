@@ -1,0 +1,20 @@
+{
+  "name": "are-you-ok-twitter-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "run": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.0.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "http-proxy-middleware": "^1.0.6",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "socket.io": "^4.0.0",
+    "util": "^0.12.3"
+  },
+  "devDependencies": {}
+}
