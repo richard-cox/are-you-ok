@@ -82,7 +82,8 @@ export default class SSR extends ComponentStoreHelper {
             </li>
             <li>Composite API Componet (like Vanilla, but created via composition-api)
               <ul>
-                <li>Neither async fetch or asyncData run! This is not quite expected, however it looks like there's a nuxt version of composition-api wich works a <a href="https://composition-api.nuxtjs.org/helpers/useFetch">little differently</a></li>
+                <li>Neither async fetch or asyncData run! This is not expected</li>
+                <li>After switching from @vue/composition-api to @nuxtjs/composition-api and using the setup/useFetch approach this seems to almost work (load in SSR is blocked on fetch)</li>
               </ul>
             </li>
           </ul>
