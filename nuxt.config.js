@@ -1,8 +1,7 @@
-import VueCompositionAPI from '@vue/composition-api';
-import Vue from 'vue';
 import colors from 'vuetify/es5/util/colors';
 
-Vue.use(VueCompositionAPI);
+// import VueCompositionAPI from '@vue/composition-api';
+// Vue.use(VueCompositionAPI);
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -38,6 +37,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/composition-api',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
