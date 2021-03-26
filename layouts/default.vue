@@ -95,6 +95,11 @@ export default {
           title: "Internet State Face",
           to: "/internet-state-face",
         },
+        {
+          icon: "mdi-card-bulleted-settings",
+          title: "Versions",
+          to: "/versions",
+        },
       ],
       miniVariant: false,
       // right: true,
