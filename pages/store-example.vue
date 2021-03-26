@@ -31,7 +31,10 @@ export default class StoreModuleDecoratorsExample extends ComponentStoreHelper {
         <!-- TODO: DEMO Components in templates autocompletes (v-col, StoreModuleDecorator) -->
         <!-- TODO: DEMO Descriptions for Vue component properties (v-banner -- elevation) -->
         <!-- <v-banner elevation="10" icon="$mdiVuetify">asdsd</v-banner> -->
-        <StoreModuleDecorator />
+        <v-row>
+          <StoreModuleDecoratorClass />
+          <store-module-decorator-composite></store-module-decorator-composite>
+        </v-row>
       </v-card-text>
     </v-card>
     <v-card class="mt-4">

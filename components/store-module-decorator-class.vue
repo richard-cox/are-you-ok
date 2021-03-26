@@ -12,33 +12,10 @@ export interface Value {
 @Component
 export default class StoreModuleDecorator extends ComponentStoreHelper {
   private increment = 0;
-  // https://github.com/Microsoft/TypeScript-Vue-Starter#using-decorators-to-define-a-component
-  // https://github.com/kaorun343/vue-property-decorator/issues/81#issuecomment-365941684
-  // strictPropertyInitialization !
-  // The definite assignment assertion is a feature that allows a ! to be placed after instance property and variable declarations to relay to TypeScript that a variable is indeed assigned for all intents and purposes, even if TypeScript’s analyses cannot detect so
-  // @Prop({ default: { label: "" } }) value: Value | undefined;
+  private storeCounter: Counter;
 
-  // TODO: DEMO v-model/value shorthand
+  // TODO: DEMO v-model/value shorthand (compare)
   @VModel({ type: String }) example!: string;
-  /* Is the same as....
-    props: {
-      value: {
-        type: String,
-      },
-    },
-    computed: {
-      name: {
-        get() {
-          return this.value
-        },
-        set(value) {
-          this.$emit('input', value)
-        },
-      },
-    },
-   */
-
-  public storeCounter: Counter;
 
   constructor() {
     super();
@@ -46,7 +23,7 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
     this.storeCounter = this.store.counter;
   }
 
-  // TODO: DEMO Emit - Execute code, emit a 'incrementReset' event with the value of this.increment
+  // TODO: DEMO Combined Method  & Emit
   @Emit("incrementReset")
   resetIncrement() {
     this.increment = 0;
@@ -58,8 +35,8 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
 <template>
   <v-col class="store-module-decorator">
     <v-col class="text-center mb-11">
-      <h1 class="mb-2">Counter</h1>
-      <h1 class="mb-2">{{ storeCounter.count }}</h1>
+      <h1 class="mb-2">Component (Class)</h1>
+      <h3 class="mb-2">Counter: {{ storeCounter.count }}</h3>
       <v-btn depressed color="primary" @click="storeCounter.reset()">
         Reset
       </v-btn>

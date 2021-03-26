@@ -2,26 +2,19 @@
 <script lang='ts'>
 import { Component } from "nuxt-property-decorator";
 import { ComponentStoreHelper } from "~/utils/store-helper";
-
-export enum Originator {
-  CLIENT = "Client",
-  SERVER = "Server",
-}
-
-export function logWithLocation(...args: any[]) {
-  console.warn(process.server ? "Server" : "Client", ":", ...args);
-}
+import { logWithLocation } from "../utils/ssr-helpers";
+import { Originator } from "../types/ssr.types";
 
 @Component<SSR>({
   // TODO: DEMO Autocomplete component features - ctx, watch values, etc
   async fetch(ctx) {
-    logWithLocation("SSR - async fetch");
+    logWithLocation("Page - async fetch");
     this.asyncFetchOrig = process.server
       ? Originator.SERVER
       : Originator.CLIENT;
   },
   asyncData(ctx): Partial<SSR> {
-    logWithLocation("SSR - asyncData");
+    logWithLocation("Page - asyncData");
     return {
       asyncDataOrig: process.server ? Originator.SERVER : Originator.CLIENT,
     };
@@ -33,7 +26,7 @@ export default class SSR extends ComponentStoreHelper {
 
   constructor() {
     super();
-    logWithLocation("SSR - init");
+    logWithLocation("Page - init");
   }
 }
 </script>
@@ -53,7 +46,11 @@ export default class SSR extends ComponentStoreHelper {
         <v-col>
           asyncData Ran: <b>{{ asyncDataOrig }}</b>
         </v-col>
-        <v-col> <ssr-component></ssr-component> </v-col>
+        <v-row>
+          <ssr-component-vanilla></ssr-component-vanilla>
+          <ssr-component-class></ssr-component-class>
+          <ssr-component-composite></ssr-component-composite>
+        </v-row>
       </v-card-text>
     </v-card>
     <v-card class="mt-4">

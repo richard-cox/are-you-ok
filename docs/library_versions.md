@@ -96,8 +96,6 @@ Other Bits
 - `Version 5 on the other hand is a completely new state management library` - https://news.vuejs.org/issues/191
 - RFC - https://github.com/vuejs/rfcs/discussions/270
 
-  
-
 ## Nuxt 
 ### v2.14
 
