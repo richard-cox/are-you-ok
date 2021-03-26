@@ -78,10 +78,9 @@ export default defineComponent({
       asyncData Ran: <b>{{ asyncDataOrig }}</b>
     </v-col>
     <v-col>
-      setup Ran: <b>{{ setupOrig }}</b> Fetch: Pending<template
-        v-if="fetchState.pending"
-        >Pending</template
-      >
+      setup Ran: <b>{{ setupOrig }}</b
+      ><br />
+      Fetch: Pending: {{ fetchState.pending }} ({{ fetchState.timestamp }})
       <!-- // TODO: RC DEMO fetch blocks whole component on first load  -->
     </v-col>
   </v-col>
