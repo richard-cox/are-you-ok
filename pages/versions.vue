@@ -264,16 +264,16 @@ export default class Versions extends Vue {
           <h3>v3</h3>
           <h4>Features</h4>
           <p>
+            See http://nuxtjs.slides.com/atinux/state-of-nuxt-2020#/5
             <ul>
               <li>Nitro - New rendering engine</li>
               <li>Webpack 5, PostCSS 8</li>
               <li>esbuild (?)</li>
               <li>rewritten core in typescript </li>
-              <li>Vue 3 support<ul>
-            <li>Vue Router 4. Add Routes at runtime</li>
-            <li>Data Fetching. asyncData & fetch will be DEPRECATED. vue3 `async setup` --> `useFetch`. support SSR & hydration. works at component level</li>
-            <li>TODO: $prismic (?)</li>
-          </ul></li>
+              <li>Vue 3 support</li>
+              <li>Vue Router 4. Add Routes at runtime</li>
+              <li>Data Fetching. asyncData & fetch will be DEPRECATED. vue3 `async setup` --> `useFetch`. support SSR & hydration. works at component level</li>
+              <li>TODO: $prismic (?)</li>
               <li>auto import of `plugins` folder </li>
               <li>`./static` becomes `./public`</li>
               <li>upport multiple apps in a single app</li>

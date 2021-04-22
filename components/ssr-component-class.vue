@@ -15,14 +15,14 @@ import { Originator } from "../types/ssr.types";
       ? Originator.SERVER
       : Originator.CLIENT;
   },
-  // TODO: DEMO Async data will only work on pages - https://nuxtjs.org/docs/2.x/features/data-fetching/#async-data
+  // TODO: X DEMO Async data will only work on pages - https://nuxtjs.org/docs/2.x/features/data-fetching/#async-data
   // asyncData(ctx) {
   //   logWithLocation("Component - asyncData");
   //   return {
   //     asyncData: process.server ? Originator.SERVER : Originator.CLIENT,
   //   };
   // },
-  // TODO: DEMO Nuxt docs both recommend and refuse to acknowledge using fetch in compontons
+  // TODO: X DEMO Nuxt docs both recommend and refuse to acknowledge using fetch in compontons
   // https://nuxtjs.org/docs/2.x/features/data-fetching/#the-fetch-hook
   // https://nuxtjs.org/docs/2.x/features/data-fetching/#async-data-in-components
 })
@@ -46,7 +46,7 @@ export default class SSRComponent extends ComponentStoreHelper {
     logWithLocation("Class - mounted fn");
   }
 
-  // TODO: DEMO These cause `Maximum call stack size exceeded` error
+  // TODO: X DEMO These cause `Maximum call stack size exceeded` error
   // async fetch() {
   //   logWithLocation("SSRComponent - inline fetch");
   //   return Promise.resolve();

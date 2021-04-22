@@ -7,7 +7,7 @@ import { DemoStore } from '../store/types';
  * Helper that provides components with a typed way to access the Vuex store.
  *
  * For components this requires glueing the store to the typed store modules, as in SSR mode it can differ to
- * that created at the server
+ * that created at the server (TODO: DEMO This is what blocks us from using vuex-module-decorators in the Dashboard)
  */
 export abstract class ComponentStoreHelper extends Vue {
   protected store: DemoStore;

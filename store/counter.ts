@@ -3,13 +3,13 @@ import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 // TODO: DEMO A Vuex store typed and classed
 
 @Module({
-  name: 'counter', // TODO: DEMO What can set in the module decorator? ... autocompletes
+  name: 'counter', // TODO: X DEMO What can set in the module decorator? ... autocompletes
   namespaced: true, // TODO: DEMO Module decorator for applying namespaced (required due to way initialised... plugin not file)
   stateFactory: true,
 })
 export default class Counter extends VuexModule {
 
-  // TODO: DEMO - VuexModules cannot have ctors https://github.com/championswimmer/vuex-module-decorators/issues/105
+  // TODO: X DEMO - VuexModules cannot have ctors https://github.com/championswimmer/vuex-module-decorators/issues/105
   // constructor() {
   //   super();
   // }

@@ -92,8 +92,8 @@ export default class TwitterStream extends VuexModule {
 
   @Action
   async start() {
-
-    this.socket = io('http://linux-o35c:3001', {
+    // linux-o35c
+    this.socket = io('http://localhost:3001', {
       path: '',
       transports: ['websocket']
     });

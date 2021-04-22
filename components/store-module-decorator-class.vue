@@ -9,6 +9,7 @@ export interface Value {
 }
 
 // TODO: DEMO what is ComponentStoreHelper? hover...
+// TODO:
 @Component
 export default class StoreModuleDecorator extends ComponentStoreHelper {
   private increment = 0;

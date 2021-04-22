@@ -2,14 +2,7 @@
 <script lang="ts">
 import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
-import {
-  defineComponent,
-  ref,
-  useFetch,
-  wrapProperty,
-} from "@nuxtjs/composition-api";
-
-// import { defineComponent } from "@vue/composition-api";
+import { defineComponent, ref, useFetch } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   async fetch(ctx) {
@@ -31,7 +24,7 @@ export default defineComponent({
     };
   },
 
-  // TODO: DEMO These suggest/autocomplete
+  // TODO: X DEMO These suggest/autocomplete
   created() {
     logWithLocation("Composite - created fn");
   },
@@ -61,7 +54,7 @@ export default defineComponent({
     console.log("fetchState.pending: ", fetchState.pending);
     console.log("fetchState.timestamp: ", fetchState.timestamp);
     return {
-      setupOrig, // TODO: DEMO Note - these are not part of data but available and autocomplete as if they were
+      setupOrig, // TODO: X DEMO Note - these are not part of data but available and autocomplete as if they were
       fetchState,
     };
   },

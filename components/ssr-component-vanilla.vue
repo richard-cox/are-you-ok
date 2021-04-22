@@ -7,7 +7,7 @@ import { Context } from "@nuxt/types";
 export default {
   async fetch(ctx: Context) {
     logWithLocation("Vanilla - async fetch");
-    // TODO: DEMO This causes a transpile error `Property 'asyncFetchOrig' does not exist on type ...`
+    // TODO: X DEMO This causes a transpile error `Property 'asyncFetchOrig' does not exist on type ...`
     // this.asyncFetchOrig = process.server ? Originator.SERVER : Originator.CLIENT;
     // return Promise.resolve({
     //   asyncFetchOrig: this.asyncFetchOrig,
@@ -26,7 +26,7 @@ export default {
     };
   },
 
-  // TODO: DEMO These suggest/autocomplete
+  // TODO: X DEMO These suggest/autocomplete
   created() {
     logWithLocation("Vanilla - created fn");
   },
