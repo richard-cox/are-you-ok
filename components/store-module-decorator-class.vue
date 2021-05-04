@@ -9,16 +9,19 @@ export interface Value {
 }
 
 // TODO: RC DEMO 1 - 3 Component as a Class
-// TODO: RC DEMO 1 - 4 Demo template autocomplete
-
-// TODO: DEMO what is ComponentStoreHelper? hover...
-// TODO:
+// TODO: RC DEMO 1 - 4 TS all about decreasing dev time and improving quality.
+// TODO: RC DEMO 1 - 4.1 What is ComponentStoreHelper
+//                         - Hover over
+//                         - go to definition
+//                         - self document code - End goal of all own code, vue, nuxt, random libraries etc
+//                         - extends like mixin but nicer defined (typed access to `this.store`)
+// TODO: RC DEMO 1 - 5 Actions can be seen in Vue.js dev tools
 @Component
 export default class StoreModuleDecorator extends ComponentStoreHelper {
-  private increment = 0;
-  private storeCounter: Counter;
+  public increment = 0;
+  public storeCounter: Counter;
 
-  // TODO: DEMO v-model/value shorthand (compare)
+  // TODO: RC DEMO 1 - 4.2 v-model/value shorthand (compare)
   @VModel({ type: String }) example!: string;
 
   constructor() {
@@ -27,7 +30,7 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
     this.storeCounter = this.store.counter;
   }
 
-  // TODO: DEMO Combined Method  & Emit
+  // TODO: RC DEMO 1 - 4.3 Combined Method & Emit
   @Emit("incrementReset")
   resetIncrement() {
     this.increment = 0;
@@ -57,10 +60,13 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
         Increment By 5
       </v-btn>
     </v-row>
+    <!-- TODO: RC DEMO 1 - 4.4 elements autocomplete (also see store-example)-->
     <v-row justify="center" class="section-header"><h4>Mutations</h4></v-row>
     <v-row justify="center" class="section-body mt-12">
-      <!-- TODO: RC DEMO 1 - 5 Actions can be seen in Vue.js dev tools -->
-      <!-- TODO: RC DEMO 1 - 6 TS in attribute values is type safe -->
+      <!-- TODO: RC DEMO 1 - 4.5 storeCounter hover & docs -->
+      <!-- TODO: RC DEMO 1 - 4.6 storeCounter autocomplete -->
+      <!-- TODO: RC DEMO 1 - 4.7 storeCounter fn properties type safe -->
+      <!-- TODO: RC DEMO 1 - 4.8 all this means no scrolling around C&P values-->
       <v-btn
         depressed
         color="primary"

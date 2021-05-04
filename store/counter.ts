@@ -30,6 +30,10 @@ export default class Counter extends VuexModule {
   increment(delta: number) {
     this._count += delta;
   }
+
+  /**
+   * Remove the provided amount from the counter
+   */
   @Mutation
   decrement(delta: number) {
     this._count -= delta;
