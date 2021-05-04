@@ -291,7 +291,7 @@ export default class Versions extends Vue {
           </p>
           <h4>Other Bits</h4>
           <p><ul>
-            <li>(8:47 for nuxt 3 info) The State of Nuxt at Vuejs Global (Amsterdam - 21 Oct 2020) - https://www.youtube.com/watch?v=NyeFQ3JmDEk</li>
+            <li>(8:47 for nuxt 3 info, 12:20 for nuxt 3 data) The State of Nuxt at Vuejs Global (Amsterdam - 21 Oct 2020) - https://www.youtube.com/watch?v=NyeFQ3JmDEk</li>
           </ul></p>
         </v-card-text>
       </v-card>

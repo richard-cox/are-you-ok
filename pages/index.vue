@@ -20,11 +20,18 @@
           <v-list-item dense>
             Achieve this by a fun project to determine the sentiment of the
             internet. This was heavily inspired by&nbsp;
-            <a href="https://github.com/thisandagain/sentiment">a site</a>&nbsp;
-            that visually and audibly presents the realtime state of Wikipedia
+            <a href="http://listen.hatnote.com/">a site</a>&nbsp; that visually
+            and audibly presents the realtime state of Wikipedia
           </v-list-item>
         </v-list>
       </p>
+      <h2>Versions</h2>
+      (latest supported by nuxt)
+      <v-list>
+        <v-list-item dense>Vue: 2.6.12</v-list-item>
+        <v-list-item dense>Vuex: 3.6.2</v-list-item>
+        <v-list-item dense>Nuxt: 2.15.3</v-list-item>
+      </v-list>
       <h2>Pages</h2>
       <h3>Vuex Store Module Decorator</h3>
       <p>

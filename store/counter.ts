@@ -1,5 +1,7 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 
+// TODO: RC DEMO 1 - 2 Store Module
+
 // TODO: DEMO A Vuex store typed and classed
 
 @Module({

@@ -5,7 +5,7 @@ Most docs/descriptions are on each page, however the aims are set out in the [My
       
 - Investigate Typescript integration with Vue, Vuex and Nuxt.
 - Understand how Typescript support changes in newer versions of each of the above.
-- Achieve this by a fun project to determine the sentiment of the internet. This was heavily inspired by [a site](https://github.com/thisandagain/sentiment) that visually and audibly tracks the state of Wikipedia.
+- Achieve this by a fun project to determine the sentiment of the internet. This was heavily inspired by [a site](http://listen.hatnote.com/) that visually and audibly tracks the state of Wikipedia.
 
 ## Build Setup
 

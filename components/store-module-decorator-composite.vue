@@ -4,6 +4,8 @@ import Counter from "../store/counter";
 import { defineComponent } from "@nuxtjs/composition-api";
 import { initialiseStores } from "../store";
 
+// TODO: RC DEMO 1 - 7 Component using composition-api. Longer, more verbose
+
 export default defineComponent({
   created() {
     const store = initialiseStores(this.$store, false);

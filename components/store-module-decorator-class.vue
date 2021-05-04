@@ -8,6 +8,9 @@ export interface Value {
   label: String;
 }
 
+// TODO: RC DEMO 1 - 3 Component as a Class
+// TODO: RC DEMO 1 - 4 Demo template autocomplete
+
 // TODO: DEMO what is ComponentStoreHelper? hover...
 // TODO:
 @Component
@@ -56,8 +59,8 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
     </v-row>
     <v-row justify="center" class="section-header"><h4>Mutations</h4></v-row>
     <v-row justify="center" class="section-body mt-12">
-      <!-- TODO: DEMO Actions can be seen in Vue.js dev tools -->
-      <!-- TODO: DEMO TS in attribute values is type safe -->
+      <!-- TODO: RC DEMO 1 - 5 Actions can be seen in Vue.js dev tools -->
+      <!-- TODO: RC DEMO 1 - 6 TS in attribute values is type safe -->
       <v-btn
         depressed
         color="primary"
