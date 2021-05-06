@@ -5,6 +5,8 @@ import { ComponentStoreHelper } from "~/utils/store-helper";
 import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
 
+// TODO: RC DEMO 2 - 3 Class
+
 @Component<SSRComponent>({
   // This does not work, defaults to true normally anyway
   // fetchOnServer: true,

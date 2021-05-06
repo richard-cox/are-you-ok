@@ -4,6 +4,8 @@ import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
 import { Context } from "@nuxt/types";
 
+// TODO: RC DEMO 2 - 1 Vanilla Class
+
 export default {
   async fetch(ctx: Context) {
     logWithLocation("Vanilla - async fetch");

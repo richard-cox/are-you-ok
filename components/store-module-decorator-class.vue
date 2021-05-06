@@ -67,6 +67,7 @@ export default class StoreModuleDecorator extends ComponentStoreHelper {
       <!-- TODO: RC DEMO 1 - 4.6 storeCounter autocomplete -->
       <!-- TODO: RC DEMO 1 - 4.7 storeCounter fn properties type safe -->
       <!-- TODO: RC DEMO 1 - 4.8 all this means no scrolling around C&P values-->
+      <!-- TODO: RC DEMO 1 - 4.9 let down on rename -->
       <v-btn
         depressed
         color="primary"

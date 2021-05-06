@@ -4,6 +4,8 @@ import { logWithLocation } from "../utils/ssr-helpers";
 import { Originator } from "../types/ssr.types";
 import { defineComponent, ref, useFetch } from "@nuxtjs/composition-api";
 
+// TODO: RC DEMO 2 - 2 Composite class
+
 export default defineComponent({
   async fetch(ctx) {
     logWithLocation("Composite - async fetch");
